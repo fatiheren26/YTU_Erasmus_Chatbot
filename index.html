@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yıldız Teknik Üniversitesi Erasmus+ Programı - Chatbot Asistanı">
+    <title>YTÜ Erasmus+ | Chatbot Asistanı</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">🎓</div>
+                <div class="logo-text">
+                    <span class="logo-title">YTÜ Erasmus+</span>
+                    <span class="logo-subtitle">Chatbot Asistanı</span>
+                </div>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active">Ana Sayfa</a>
+                <a href="#about" class="nav-link">Hakkında</a>
+                <a href="#programs" class="nav-link">Programlar</a>
+                <a href="#faq" class="nav-link">SSS</a>
+            </nav>
+            <div class="header-actions">
+                <button class="chatbot-header-btn dify-btn" id="openDifyFullscreen"
+                    title="Dify Chatbot ile Tam Sayfa Konuş">
+                    <span class="btn-icon">💬</span>
+                    <span>Dify</span>
+                </button>
+                <button class="chatbot-header-btn botpress-btn" id="openBotpressFullscreen"
+                    title="Botpress Chatbot ile Tam Sayfa Konuş">
+                    <span class="btn-icon">🤖</span>
+                    <span>Botpress</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-badge"><span>🇪🇺</span> Erasmus+ Programı</div>
+                <h1>Yıldız Teknik Üniversitesi <span class="gradient-text">Erasmus+ Asistanı</span></h1>
+                <p>Erasmus+ programı hakkında tüm sorularınızı yapay zeka destekli chatbot'larımız ile yanıtlayın.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="startChatHero">💬 Chatbot ile Konuş</button>
+                    <a href="#programs" class="btn btn-secondary">Programları Keşfet →</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">Erasmus+ Nedir?</h2>
+                <div class="about-grid">
+                    <div class="about-card">📚<h3>Öğrenim Hareketliliği</h3>
+                        <p>Avrupa'da 3-12 ay eğitim fırsatı</p>
+                    </div>
+                    <div class="about-card">💰<h3>Hibe Desteği</h3>
+                        <p>Aylık hibe ve seyahat desteği</p>
+                    </div>
+                    <div class="about-card">📝<h3>ECTS Transferi</h3>
+                        <p>Krediler transfer edilir</p>
+                    </div>
+                    <div class="about-card">🌍<h3>Kültürel Deneyim</h3>
+                        <p>Uluslararası ağ kurma</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="programs" class="programs-section">
+            <div class="container">
+                <h2 class="section-title">Hareketlilik Türleri</h2>
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <h3>🎓 Öğrenci Öğrenim</h3>
+                        <p>Partner üniversitelerde eğitim</p>
+                        <button class="btn btn-outline" onclick="openFullscreenChat('dify')">Detaylı Bilgi</button>
+                    </div>
+                    <div class="program-card">
+                        <h3>💼 Staj Hareketliliği</h3>
+                        <p>Avrupa'da staj deneyimi</p>
+                        <button class="btn btn-outline" onclick="openFullscreenChat('dify')">Detaylı Bilgi</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Sık Sorulan Sorular</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>Başvuru şartları?</h4>
+                        <p>YTÜ öğrencisi olmak, GPA ve dil yeterliliği</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Ne kadar hibe?</h4>
+                        <p>Aylık 500-700€ arası</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Hangi ülkeler?</h4>
+                        <p>30+ ülke seçeneği</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Daha fazla soru?</h4><button class="btn btn-sm"
+                            onclick="openFullscreenChat('dify')">Chatbot'a Sor</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 Yıldız Teknik Üniversitesi Erasmus+ | <a href="https://yildiz.edu.tr">yildiz.edu.tr</a></p>
+    </footer>
+
+    <!-- Fullscreen Chatbot Modal (Iframe ile gerçek Dify/Botpress) -->
+    <div class="fullscreen-chat-modal" id="fullscreenModal">
+        <div class="fullscreen-modal-header">
+            <span id="fullscreenTitle">💬 Dify Chatbot</span>
+            <button class="fullscreen-close" id="closeFullscreen">✕</button>
+        </div>
+        <div class="fullscreen-modal-body">
+            <iframe id="chatbotIframe" src="" frameborder="0" allow="microphone"></iframe>
+        </div>
+    </div>
+
+    <!-- Tek Baloncuk Chat Widget -->
+    <div class="chat-bubble-widget" id="chatBubbleWidget">
+        <!-- Chat Penceresi -->
+        <div class="bubble-chat-window" id="bubbleChatWindow">
+            <!-- Üstte Bot Seçici -->
+            <div class="bubble-header">
+                <div class="bot-tabs">
+                    <button class="bot-tab active" data-bot="dify">💬 Dify</button>
+                    <button class="bot-tab" data-bot="botpress">🤖 Botpress</button>
+                </div>
+                <button class="bubble-minimize" id="minimizeBubble">−</button>
+            </div>
+            <!-- Chat İçeriği (iframe) -->
+            <div class="bubble-content">
+                <iframe id="bubbleIframe" src="" frameborder="0" allow="microphone"></iframe>
+            </div>
+        </div>
+        <!-- Baloncuk Butonu -->
+        <button class="chat-bubble-btn" id="chatBubbleBtn">
+            <span class="bubble-icon">💬</span>
+            <span class="bubble-close-icon">✕</span>
+        </button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
