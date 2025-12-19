@@ -1,6 +1,7 @@
 # YTÜ Erasmus+ Chatbot
 
 Yıldız Teknik Üniversitesi Erasmus programı için Dify ve Botpress chatbot entegrasyonu.
+Web sitesi linki: https://extraordinary-kelpie-87357b.netlify.app/
 
 ## Çalıştırma
 
@@ -28,3 +29,4 @@ Kendi chatbot'unuzu kullanmak için:
 
 **Dify:** `dify.html` içindeki iframe src'sini değiştirin  
 **Botpress:** `botpress.html` içindeki script src'sini değiştirin
+
